@@ -1,0 +1,22 @@
+{
+  "name": "practical-guide-to-algorithms",
+  "version": "1.0.0",
+  "description": "Coding example from the Frontend Masters course 'Practical Guide to Algorithms'",
+  "main": "DivideConquer.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whookam/Practical-guide-to-algorithms.git"
+  },
+  "author": "Peter Whyte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whookam/Practical-guide-to-algorithms/issues"
+  },
+  "homepage": "https://github.com/whookam/Practical-guide-to-algorithms#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
