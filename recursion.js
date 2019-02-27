@@ -13,15 +13,20 @@ function joinElements(array, joinString) {
   return recurse(0, '');
 }
 
-joinElements(['s', 'cr', 'r cod', ' :) :)'], 'e');
+joinElements(['s', 'cr', 't cod', ' :) :)'], 'e');
 
 // ~~~~~~~~~~~ my answer ~~~~~~~~~~
-loopElements(['s', 'cr', 'r cod', ' :) :)'], 'e');
+loopElements(['s', 'cr', 't cod', ' :) :)'], 'e');
 
 function loopElements(array, joinItem) {
   let resultSoFar = '';
   for(let i = 0; i < array.length; i ++) {
-    resultSoFar += array[i] + joinItem;
+    resultSoFar += array[i] + (i === array.length -1 ? '' : joinItem);
   }
   return resultSoFar;
 }
+
+module.exports = {
+  joinElements,
+  loopElements
+};

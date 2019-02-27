@@ -18,4 +18,8 @@ const uniqSort = function(arr) {
 };
 
 // uniqSort([4,2,2,3,2,2,2,4]); // => [2,3,4]
-uniqSort([1,5,2,1]); // => [1,2,5]
+// uniqSort([1,5,2,1]); // => [1,2,5]
+
+module.exports = {
+  uniqSort
+}
