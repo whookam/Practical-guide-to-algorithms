@@ -2,6 +2,7 @@ const dc = require('./divideConquer');
 
 const linearSearch = dc.linearSearch;
 const binarySearch = dc.binarySearch;
+const bubbleSortBasic = dc.bubbleSortBasic;
 const bubbleSort = dc.bubbleSort;
 const mergeSort = dc.mergeSort;
 
@@ -32,6 +33,18 @@ describe('Divide and Conquer', () => {
     });
   });
 
+  describe('Task 3: Bubblesort basic', () => {
+    it('should sort a random array', () => {
+      expect(bubbleSortBasic(arrayRandom)).toEqual(result);
+    });
+    it('should sort a ordered array', () => {
+      expect(bubbleSortBasic(arrayOrdered)).toEqual(result);
+    });
+    it('should sort a reversed array', () => {
+      expect(bubbleSortBasic(arrayReversed)).toEqual(result);
+    });
+  });
+  
   describe('Task 3: Bubblesort', () => {
     it('should sort a random array', () => {
       expect(bubbleSort(arrayRandom)).toEqual(result);
@@ -45,6 +58,14 @@ describe('Divide and Conquer', () => {
   });
 
   describe('Task 4: Merge sort', () => {
-
+    it('should sort a random array', () => {
+      expect(mergeSort(arrayRandom)).toEqual(result);
+    });
+    it('should sort a ordered array', () => {
+      expect(mergeSort(arrayOrdered)).toEqual(result);
+    });
+    it('should sort a reversed array', () => {
+      expect(mergeSort(arrayReversed)).toEqual(result);
+    });
   });
 });

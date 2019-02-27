@@ -48,9 +48,51 @@ function binarySearch(list, item) {
 // shift the array with the lower value
 // repeat until both arrays are empty.
 
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+}
+
 // TASK: Implement bubblesort
-function bubbleSort(list) {
-  return [];
+function bubbleSortBasic(list) {
+  let countOuter = 0;
+  let countInner = 0;
+  let countSwap = 0;
+
+  for(let i = 0; i < list.length; i += 1) {
+    countOuter += 1;
+    for(let j = 1; j < list.length; j += 1) {
+      countInner += 1;
+      if (list[j - 1] > list[j]) {
+        countSwap += 1;
+        swap(list, j - 1, j);
+      }
+    }
+  }
+  return list;
+}
+
+function bubbleSort(array) {
+  let countOuter = 0;
+  let countInner = 0;
+  let countSwap = 0;
+  let swapped;
+
+  do {
+    countOuter++;
+    swapped = false;
+    for(let i = 0; i < array.length; i ++) {
+      countInner++;
+      if(array[i] && array[i+ 1] && array[i] > array[i + 1]) {
+        countSwap++;
+        swap(array, i, i + 1);
+        swapped = true;
+      }
+    }
+  } while(swapped);
+
+  return array;
 }
 
 // TASK: Implement mergeSort
@@ -58,18 +100,38 @@ function bubbleSort(list) {
 // ProTip: return once we hit an array with a single item. That is a sorted array of size 1!
 // Protip: Compare the arrays item by item and return the concatenated result.
 
-function mergeSort(list) {
-  return [];
+function merge(left, right) {
+  let result = [];
+  let indexLeft = 0;
+  let indexRight = 0;
+
+  while( indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+      result.push(left[indexLeft]);
+      indexLeft++;
+    } else {
+      result.push(right[indexRight]);
+      indexRight++;
+    }
+  }
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));
 }
 
-// Sample of arrays to sort
-const arrayRandom = [9,2,5,6,4,3,7,10,1,8];
-const arrayOrdered = [1,2,3,4,5,6,7,8,9,10];
-const arrayReversed = [10,9,8,7,6,5,4,3,2,1];
+function mergeSort(arr) {
+  if (arr.length === 1) {
+    return arr;
+  }
+  const middle = Math.floor(arr.length / 2); // get the middle item of the array rounded down.
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
 
 module.exports = {
   linearSearch,
   binarySearch,
+  bubbleSortBasic,
   bubbleSort,
   mergeSort,
 };
